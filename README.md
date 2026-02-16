@@ -13,7 +13,15 @@ For this option, you manually interact with the prompt interface for all fies.
 For this option, you just copy and paste this command into the LLM prompt:
 
 ```text
-Access=https://github.com/robert-kurcina/aiccm/tree/main/src
+Access these files at:
+
+https://raw.githubusercontent.com/robert-kurcina/aiccm/refs/heads/main/src/nodes.json
+https://raw.githubusercontent.com/robert-kurcina/aiccm/refs/heads/main/src/items.json
+https://raw.githubusercontent.com/robert-kurcina/aiccm/refs/heads/main/src/initial_state.json
+https://raw.githubusercontent.com/robert-kurcina/aiccm/refs/heads/main/src/engine_schema.json
+https://raw.githubusercontent.com/robert-kurcina/aiccm/refs/heads/main/src/edges.json
+https://raw.githubusercontent.com/robert-kurcina/aiccm/refs/heads/main/src/llm_execution_guide.md
+
 Read and parse the JSON files. Play the game as described.
 ```
 
