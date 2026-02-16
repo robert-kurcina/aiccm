@@ -13,7 +13,7 @@ For this option, you manually interact with the prompt interface for all fies.
 For this option, you just copy and paste this command into the LLM prompt:
 
 ```text
-Access https://github.com/robert-kurcina/aiccm/src
+Access=https://github.com/robert-kurcina/aiccm/tree/main/src
 Read and parse the JSON files. Play the game as described.
 ```
 
