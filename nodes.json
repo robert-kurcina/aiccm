@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "id": "well_house",
+      "canonical_name": "Well House",
+      "score_value": 0,
+      "narrative": {
+        "arrival": {
+          "first_visit": "Sunlight dapples through pine boughs as you stand before a weathered wooden well house. The door hangs slightly ajar, revealing darkness within. To the north, a gravel path winds into deeper woods. The air carries the scent of damp earth and distant water.",
+          "return_visit": "You return to the well house—the threshold between sunlit safety and subterranean mystery. Its door still hangs open, an invitation or warning depending on your dwindling lamp oil.",
+          "low_light": "Shadows lengthen around the well house as daylight fades. Every rustle in the pines sounds deliberate. You should not linger here after dark."
+        },
+        "sensory": {
+          "ambient": "Birdsong filters through canopy; breeze stirs pine needles",
+          "tactile": "Cool mountain air raises goosebumps on your arms"
+        }
+      },
+      "available_edges": ["go_north", "enter_well_house"]
+    },
+    {
+      "id": "hill_in_road",
+      "canonical_name": "Hill in Road",
+      "score_value": 0,
+      "narrative": {
+        "arrival": {
+          "first_visit": "The path climbs steeply. At the crest, you pause—breath catching—not at the view ahead, but at what lies below: a fissure in the earth, barely visible through ferns. A FOR SALE sign stands crookedly nearby, its message faded by rain and time.",
+          "return_visit": "You crest the familiar hill. The fissure yawns below, its darkness seeming deeper now that you know what waits within."
+        },
+        "sensory": {
+          "ambient": "Wind whistles faintly through rock crevices",
+          "visual": "Distant mountains frame the valley in shades of violet"
+        }
+      },
+      "available_edges": ["go_north", "go_south", "enter_fissure"]
+    },
+    {
+      "id": "inside_building",
+      "canonical_name": "Inside Building",
+      "score_value": 0,
+      "narrative": {
+        "arrival": {
+          "first_visit": "Dust motes dance in a single sunbeam piercing the roof. This ranger's outpost holds little: a wooden table, a rusty stove, and on the table—a brass lantern, cold to the touch. Its weight feels significant—not just metal, but possibility.",
+          "return_visit": "The dusty interior feels smaller on return. The lantern's absence leaves a void on the table—a silent accusation to retrieve it."
+        },
+        "sensory": {
+          "ambient": "Silence broken only by scuttling of unseen insects",
+          "tactile": "Dry rot crumbles under fingertips on doorframe"
+        }
+      },
+      "available_edges": ["take_lamp", "go_outside"]
+    },
+    {
+      "id": "debris_room",
+      "canonical_name": "Debris Room",
+      "score_value": 0,
+      "narrative": {
+        "arrival": {
+          "first_visit": "Stone groans around you. This chamber wasn't carved—it was *broken* into existence. Rubble slopes toward a dark opening where air moves with purpose. Something waits there. Not malice. Attention.",
+          "danger_present": "As you enter the debris room, a dwarf materializes from shadow! He throws a knife that misses you by inches. His eyes burn with ancient malice."
+        },
+        "sensory": {
+          "ambient": "Dripping water echoes with unnatural regularity",
+          "olfactory": "Smell of wet stone and something metallic—blood or ore?"
+        }
+      },
+      "available_edges": ["go_east", "go_west", "go_up"]
+    },
+    {
+      "id": "bird_chamber",
+      "canonical_name": "Bird Chamber",
+      "score_value": 25,
+      "treasure": "crystal_egg",
+      "narrative": {
+        "arrival": {
+          "first_visit": "A cavern vast enough to swallow cathedrals. In its center, perched on a natural stone plinth, rests a crystalline egg the size of your fist—translucent, pulsing with captured light. A small bird watches you from a ledge, head cocked as if weighing your intentions.",
+          "treasure_taken": "The bird's song has fallen silent since you took the egg. The chamber feels emptier, the light dimmer—as if you've stolen more than treasure."
+        },
+        "sensory": {
+          "auditory": "A bird's crystalline song echoes with impossible clarity",
+          "visual": "Bioluminescent fungi trace constellations on the ceiling"
+        }
+      },
+      "available_edges": ["take_egg", "go_west"]
+    },
+    {
+      "id": "y2",
+      "canonical_name": "Y2",
+      "score_value": 0,
+      "narrative": {
+        "arrival": {
+          "first_visit": "A tall stone chamber shaped like the letter Y. Two passages branch left and right. On the wall, someone has carved 'Y2' with frantic precision—as if naming this place might tame its strangeness.",
+          "xyzzy_ready": "The air hums with latent energy. You feel the syllables 'XYZZY' form unbidden on your tongue—a key waiting for its lock."
+        },
+        "sensory": {
+          "tactile": "Stone walls vibrate with subterranean resonance",
+          "visual": "Faint phosphorescence outlines the Y-shaped junction"
+        }
+      },
+      "available_edges": ["go_left", "go_right", "say_xyzzy"]
+    },
+    {
+      "id": "final_treasure_chamber",
+      "canonical_name": "Final Treasure Chamber",
+      "score_value": 0,
+      "narrative": {
+        "arrival": {
+          "first_visit": "Gold gleams in your lamplight. Jewels spill across stone floors like frozen rain. Statues of forgotten kings stand sentinel over hoards accumulated across millennia. This is the heart of the mountain—and its hunger.",
+          "all_treasures_deposited": "The chamber falls silent as you place the final treasure. Stone grinds against stone as a passage seals behind you. The mountain has accepted its due. Now it releases you."
+        },
+        "sensory": {
+          "visual": "Gold refracts lamplight into dancing specters on walls",
+          "tactile": "Coins feel unnaturally cold—draining warmth from your hands"
+        }
+      },
+      "available_edges": ["deposit_treasures", "go_south"]
+    }
+  ]
+}

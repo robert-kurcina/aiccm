@@ -1,0 +1,105 @@
+{
+  "edges": [
+    {
+      "id": "go_north",
+      "verb_groups": ["north", "n", "forward", "ahead"],
+      "source_nodes": ["well_house", "hill_in_road"],
+      "target_node": {
+        "well_house": "hill_in_road",
+        "hill_in_road": "hill_in_road_north"
+      },
+      "preconditions": [],
+      "effects": [
+        {"type": "increment", "target": "move_count", "value": 1},
+        {"type": "drain_lamp", "rate": 1}
+      ],
+      "narrative": {
+        "player_action": "You follow the path northward, boots crunching on gravel as the forest deepens around you.",
+        "environmental_response": "The trees close ranks behind you—a psychological barrier forming between this choice and retreat."
+      }
+    },
+    {
+      "id": "enter_fissure",
+      "verb_groups": ["enter", "in", "inside", "cave", "fissure"],
+      "source_nodes": ["hill_in_road"],
+      "target_node": {"hill_in_road": "debris_room"},
+      "preconditions": [
+        {"type": "require_item", "item_id": "lamp", "message": "Darkness swallows the fissure whole. Without light, entering would be suicide."}
+      ],
+      "effects": [
+        {"type": "increment", "target": "move_count", "value": 1},
+        {"type": "set_flag", "flag": "underground", "value": true}
+      ],
+      "narrative": {
+        "player_action": "You squeeze through the fissure, shoulders scraping stone. For a heartbeat—darkness absolute—then your eyes adjust to the cavern's breath: cool, mineral-scented air flowing from depths unknown.",
+        "environmental_response": "The entrance seals behind you like a closing eye. There is only forward now."
+      }
+    },
+    {
+      "id": "take_lamp",
+      "verb_groups": ["take lamp", "get lamp", "grab lantern"],
+      "source_nodes": ["inside_building"],
+      "target_node": {"inside_building": "inside_building"},
+      "preconditions": [
+        {"type": "item_not_in_inventory", "item_id": "lamp", "message": "The lantern is already in your pack, its weight a constant reminder of your dependence on its flame."}
+      ],
+      "effects": [
+        {"type": "add_to_inventory", "item_id": "lamp"},
+        {"type": "set_flag", "flag": "lamp_battery", "value": 100}
+      ],
+      "narrative": {
+        "player_action": "Your fingers close around cold brass. As you lift the lantern, a faint warmth blooms in its core—not from flame, but from potential.",
+        "environmental_response": "The dust on the table shifts as if sighing at your departure."
+      }
+    },
+    {
+      "id": "take_egg",
+      "verb_groups": ["take egg", "get egg", "grab crystal"],
+      "source_nodes": ["bird_chamber"],
+      "target_node": {"bird_chamber": "bird_chamber"},
+      "preconditions": [
+        {"type": "item_not_in_inventory", "item_id": "crystal_egg"}
+      ],
+      "effects": [
+        {"type": "add_to_inventory", "item_id": "crystal_egg"},
+        {"type": "increment", "target": "score", "value": 25}
+      ],
+      "narrative": {
+        "player_action": "The egg comes away from its plinth with a sound like breaking ice. Light pulses within its depths as if in protest.",
+        "environmental_response": "The bird falls silent. Its head tilts—not in anger, but sorrow."
+      }
+    },
+    {
+      "id": "say_xyzzy",
+      "verb_groups": ["xyzzy", "say xyzzy", "utter xyzzy"],
+      "source_nodes": ["y2"],
+      "target_node": {"y2": "well_house"},
+      "preconditions": [],
+      "effects": [
+        {"type": "increment", "target": "move_count", "value": 1}
+      ],
+      "narrative": {
+        "player_action": "You speak the syllables 'XYZZY' aloud. The stone shudders—not violently, but with recognition.",
+        "environmental_response": "Space folds. One moment you stand in Y2's resonance; the next, pine-scented air fills your lungs. The well house surrounds you. The mountain has heard your word."
+      }
+    },
+    {
+      "id": "deposit_treasures",
+      "verb_groups": ["deposit", "drop treasures", "leave treasures"],
+      "source_nodes": ["final_treasure_chamber"],
+      "target_node": {"final_treasure_chamber": "final_treasure_chamber"},
+      "preconditions": [
+        {"type": "all_treasures_collected", "message": "The chamber awaits its full tribute. Return when your pack holds all fifteen treasures."}
+      ],
+      "effects": [
+        {"type": "clear_inventory", "item_type": "treasure"},
+        {"type": "set_flag", "flag": "all_treasures_deposited", "value": true},
+        {"type": "set_score", "value": 350}
+      ],
+      "narrative": {
+        "player_action": "One by one, you place the treasures upon the stone floor. Gold, jewels, the crystal egg—they gleam with finality.",
+        "environmental_response": "Stone grinds against stone as passages seal. The mountain has accepted its due. A new passage opens to the south—your exit, earned."
+      }
+    }
+  ]
+}

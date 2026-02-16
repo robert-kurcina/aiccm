@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": "lamp",
+      "type": "tool",
+      "narrative": {
+        "description": "A brass lantern with a reservoir for oil. Its flame pushes back the cave's hunger—but not forever.",
+        "low_battery": "The flame gutters, casting frantic shadows. Oil runs dangerously low.",
+        "depleted": "Darkness swallows the flame. The lantern is now dead weight—a monument to your miscalculation."
+      },
+      "states": {
+        "has_oil": {"default": true, "drains_per_move": 1},
+        "is_lit": {"default": false, "toggle_verb": "light/unlight"}
+      }
+    },
+    {
+      "id": "crystal_egg",
+      "type": "treasure",
+      "point_value": 25,
+      "narrative": {
+        "in_inventory": "The egg pulses faintly against your chest—a captured heartbeat from the mountain's core.",
+        "deposited": "Light bleeds from the egg as it touches stone. It has returned home."
+      }
+    },
+    {
+      "id": "jeweled_scepter",
+      "type": "treasure",
+      "point_value": 30,
+      "narrative": {
+        "in_inventory": "Cold jewels press against your palm. Kings have killed for less.",
+        "deposited": "The scepter rests among its kin. Power returns to the earth."
+      }
+    }
+  ],
+  "treasure_set": {
+    "required_count": 15,
+    "completion_message": "All fifteen treasures rest in the chamber. The mountain releases its hold on you. Type DEPOSIT TREASURES to claim your 350 points and exit."
+  }
+}

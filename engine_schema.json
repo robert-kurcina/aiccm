@@ -1,0 +1,45 @@
+{
+  "engine_version": "1.0",
+  "execution_model": "LLM_STATE_MACHINE",
+  "core_concepts": {
+    "node": "A location with narrative descriptions and available edges",
+    "edge": "A player decision/action that transitions between nodes or modifies state",
+    "state": "Persistent game data tracked across turns (inventory, world flags, etc.)",
+    "narrative_layer": "Context-aware text templates selected based on state conditions"
+  },
+  "llm_execution_rules": {
+    "step_1_parse_input": "Normalize player input to lowercase tokens. Match against edge.verb_groups.",
+    "step_2_validate_preconditions": "Check all edge.preconditions against current state. Reject if any fail.",
+    "step_3_apply_effects": "Execute edge.effects in order (modify state flags, inventory, counters).",
+    "step_4_compose_narrative": "Select narrative templates based on state flags (first_visit, lamp_status, emotional_state).",
+    "step_5_output": "Return composed narrative + available_actions (edges passing preconditions)."
+  },
+  "state_schema": {
+    "current_node": "string (node.id)",
+    "visited_nodes": "array of node IDs",
+    "inventory": "array of item IDs",
+    "world_flags": {
+      "grate_unlocked": "boolean",
+      "dragon_alive": "boolean",
+      "dwarves_active": "integer (0-3)",
+      "lamp_battery": "integer (0-100)",
+      "reservoir_drained": "boolean"
+    },
+    "score": "integer (0-350)",
+    "move_count": "integer"
+  },
+  "narrative_selection_rules": [
+    {
+      "condition": "node.first_visit == true",
+      "template_key": "narrative.arrival.first_visit"
+    },
+    {
+      "condition": "node.first_visit == false AND lamp_battery < 20",
+      "template_key": "narrative.arrival.low_light"
+    },
+    {
+      "condition": "world_flags.dwarves_active > 0",
+      "template_key": "narrative.arrival.danger_present"
+    }
+  ]
+}

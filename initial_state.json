@@ -1,0 +1,22 @@
+{
+  "current_node": "well_house",
+  "visited_nodes": [],
+  "inventory": [],
+  "world_flags": {
+    "grate_unlocked": false,
+    "dragon_alive": true,
+    "dwarves_active": 0,
+    "lamp_battery": 0,
+    "reservoir_drained": false,
+    "underground": false,
+    "all_treasures_deposited": false
+  },
+  "score": 0,
+  "move_count": 0,
+  "game_status": "active",
+  "narrative_context": {
+    "emotional_state": "curious",
+    "lamp_status": "unlit",
+    "danger_level": "none"
+  }
+}
